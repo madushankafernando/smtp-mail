@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</head>
+<body>
+
+    <form id="contactForm">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <button type="button" onclick="sendEmail()">Submit</button>
+    </form>
+
+    <script>
+        function sendEmail() {
+            var email = document.getElementById("email").value;
+            var message = document.getElementById("message").value;
+
+            Email.send({
+                Host: "smtp.gmail.com",
+                Username: "cargosalemalmakrani@gmail.com", // Your Gmail email address
+                Password: "hfmc wsgh csog xhms",    // App-specific password for Gmail
+                To: 'info.devoaps@gmail.com',      // Recipient email address
+                From: email,
+                Subject: "Contact Form Submission",
+                Body: "test email"
+            }).then(
+                function(message) {
+                    alert("Email sent successfully");
+                }
+            );
+        }
+    </script>
+
+</body>
+</html>
